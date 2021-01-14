@@ -9,10 +9,13 @@ const homes = require('./routes/homes');
 const mortgage = require('./routes/mortgage');
 
 // db
-mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true })
+  .then(() => console.log('connecting to MongoDB ..'));
+
 // parse
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 // serve
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
@@ -20,4 +23,4 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use('/homes', homes);
 app.use('/mortgage', mortgage);
 
-app.listen(port, () => console.log(`ok_ON_${port}..`));
+app.listen(port, () => console.log(`connectedon localhost:${port}..`));
