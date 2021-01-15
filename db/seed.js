@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-console */
 const mongoose = require('mongoose');
 const faker = require('faker');
 const Home = require('../models/homes.js');
