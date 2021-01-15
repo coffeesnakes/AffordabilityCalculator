@@ -1,11 +1,27 @@
 /* eslint-disable no-unused-vars */
 const express = require('express');
-const Home = require('../../models/homes.js');
+const Mortgage = require('../../models/mortgage.js');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('hello friend inside of mortgage route.');
+  Mortgage.find()
+    .then((homes) => {
+      res.status(200).send(homes);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
+});
+
+router.get('/:id', (req, res) => {
+  Mortgage.findOne({ _id: req.params.id })
+    .then((mortgage) => {
+      res.status(200).send(mortgage);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
 });
 
 router.post('/', (req, res) => {
