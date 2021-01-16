@@ -25,15 +25,33 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-
+  Mortgage.findOneAndUpdate({ name: req.body.name }, req.body, { upsert: true, new: true })
+    .then((newMortgage) => {
+      res.status(200).send(newMortgage);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
 });
 
 router.put('/:id', (req, res) => {
-
+  Mortgage.findOneAndUpdate({ name: req.body.name }, req.body, { upsert: true, new: true })
+    .then((newMortgage) => {
+      res.status(200).send(newMortgage);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
 });
 
 router.delete('/:id', (req, res) => {
-
+  Mortgage.deleteOne({ _id: req.params.id })
+    .then((results) => {
+      res.status(200).send(results);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
 });
 
 module.exports = router;
