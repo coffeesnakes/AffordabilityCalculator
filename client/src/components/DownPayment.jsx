@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import RangeSlider from './RangeSlider';
+
 const DownPaymentContainer = styled.div`
   flex: 1;
   display: flex;
@@ -16,6 +18,8 @@ const TopContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 25px;
+
   .money-input {
     width: 100px;
     border-width: 1px 0px 1px 1px;
@@ -54,13 +58,14 @@ const TopContainer = styled.div`
   }
 `;
 
-const DownPayment = () => (
+const DownPayment = ({ homePrice }) => (
   <DownPaymentContainer>
     <TopContainer>
       <h4>Down Payment</h4>
       <input type="text" className="money-input" value="$5000"></input>
       <input type="text" className="percent-input" value="20%"></input>
     </TopContainer>
+    <RangeSlider homePrice={homePrice} />
   </DownPaymentContainer>
 );
 

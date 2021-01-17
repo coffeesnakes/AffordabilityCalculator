@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import RangeSlider from './RangeSlider';
+
 const homePriceContain = styled.div`
 flex: 1;
 display: flex;
@@ -25,8 +27,21 @@ input {
 const HomePrice = ({ homePrice }) => {
   const [value, setValue] = useState(homePrice);
 
-  const handleChange = (e) => setValue(e.target.value);
+  const [fill, setFill] = useState(75);
+  const max = homePrice * 1.5;
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    setFill((event.target.value / max) * 100);
+  };
+
+  const styles = {
+    background: `linear-gradient(to right,
+      rgb(0, 120, 130) 0%,
+      rgb(0, 120, 130) ${fill}%,
+      rgb(25, 209, 212) ${fill}%,
+      rgb(205, 209, 212) 100%)`,
+  };
   return (
     <homePriceContain>
       <TopContain>

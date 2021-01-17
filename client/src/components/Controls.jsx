@@ -15,8 +15,8 @@ border: 1px solid black;
 const Controls = ({ homePrice }) => (
   <ControlsContain>
     <HomePrice homePrice={homePrice} />
-    <DownPayment />
-    <InterestRate />
+    <DownPayment homePrice={homePrice} />
+    <InterestRate homePrice={homePrice} />
   </ControlsContain>
 );
 
