@@ -21,7 +21,7 @@ const App = () => {
     <AppContainer>
       <Header payment={payment} />
       <Controls homePrice={homePrice} />
-      <Display />
+      <Display homePrice={homePrice} />
     </AppContainer>
   );
 };

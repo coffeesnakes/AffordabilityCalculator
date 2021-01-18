@@ -7,6 +7,8 @@ const DownPaymentContainer = styled.div`
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  align-items: space-between;
   border-style: solid;
   border-color: transparent;
   border-width: 16px 8px 0px;
@@ -19,7 +21,9 @@ const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+`;
 
+const InputContainer = styled.div`
   .money-input {
     width: 100px;
     border-width: 1px 0px 1px 1px;
@@ -62,10 +66,13 @@ const DownPayment = ({ homePrice }) => (
   <DownPaymentContainer>
     <TopContainer>
       <h4>Down Payment</h4>
-      <input type="text" className="money-input" value="$5000"></input>
-      <input type="text" className="percent-input" value="20%"></input>
+      <InputContainer>
+        <input type="text" className="money-input" value="$5000"></input>
+        <input type="text" className="percent-input" value="20%"></input>
+      </InputContainer>
     </TopContainer>
     <RangeSlider homePrice={homePrice} />
+
   </DownPaymentContainer>
 );
 

@@ -44,11 +44,11 @@ const HomePrice = ({ homePrice }) => {
   };
   return (
     <homePriceContain>
-      <TopContain>
+      <TopContain className="top-container">
         <h4>Home Price</h4>
         <input type="text" className="money-input" />
       </TopContain>
-      <input className="range" type="range" min="0" max="1500000" step="10" value={value} onChange={handleChange} />
+      <input style={styles} className="range" type="range" min="0" max={max} step="10" value={value} onChange={handleChange} />
     </homePriceContain>
   );
 };

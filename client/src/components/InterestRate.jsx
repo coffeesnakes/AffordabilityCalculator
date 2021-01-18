@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import RangeSlider from './RangeSlider';
 
 const InterestRateContain = styled.div`
-flex: 1;
+  flex: 1;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  align-items: space-between;
   border-style: solid;
   border-color: transparent;
   border-width: 15px 8px 0px;
@@ -17,18 +19,20 @@ display: flex;
 flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
+margin-bottom: 25px;
 
 input {
   width: 75px;
 }
 `;
 
-const InterestRate = () => (
+const InterestRate = ({ homePrice }) => (
   <InterestRateContain>
     <TopContain>
       <h4>Interest Rate</h4>
       <input type="text" className="money-input"></input>
     </TopContain>
+    <RangeSlider homePrice={homePrice} />
   </InterestRateContain>
 );
 
