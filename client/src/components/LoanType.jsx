@@ -9,7 +9,7 @@ const LoanTypeContainer = styled.div`
   align-items: space-between;
   border-style: solid;
   border-color: transparent;
-  border-width: 16px 8px 0px;
+  border-width: 15px 8px 0px;
 }
 `;
 
@@ -18,7 +18,7 @@ const TopContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   input {
     width: 112px;
   }

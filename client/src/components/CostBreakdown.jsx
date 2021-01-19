@@ -4,6 +4,10 @@ import Cost from './Cost';
 
 const CostContain = styled.div`
 flex: 2;
+display: flex;
+flex-flow: colum nowrap;
+justify-content: center;
+align-items: space-around;
 `;
 
 const CostBreakdown = ({ homePrice }) => (

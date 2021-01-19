@@ -11,7 +11,10 @@ const ControlsContain = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   width: 100%;
-  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(245, 246, 247);
+  padding: 0px 16px 16px 16px;
+  margin-top: 16px;
 `;
 
 const Controls = ({ homePrice }) => (

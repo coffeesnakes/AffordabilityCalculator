@@ -6,7 +6,7 @@ display: flex;
 flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
-margin: 5px 0;
+margin: 4px 0;
 `;
 
 const CostDescription = styled.div`
