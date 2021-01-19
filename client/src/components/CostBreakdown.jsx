@@ -7,7 +7,8 @@ flex: 2;
 display: flex;
 flex-flow: colum nowrap;
 justify-content: center;
-align-items: space-around;
+align-items: space-between;
+padding: 16px 0px 16px 16px;
 `;
 
 const CostBreakdown = ({ homePrice }) => (
