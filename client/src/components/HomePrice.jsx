@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import numeral from 'numeral';
 
 import RangeSlider from './RangeSlider';
 
-const homePriceContain = styled.div`
+const HomePriceContain = styled.div`
 flex: 1;
 display: flex;
 flex-flow: column nowrap;
@@ -24,15 +25,16 @@ input {
 }
 `;
 
-const HomePrice = ({ homePrice }) => {
+const HomePrice = ({ homePrice, handlePriceChange }) => {
   const [value, setValue] = useState(homePrice);
-
   const [fill, setFill] = useState(75);
-  const max = homePrice * 1.5;
+  const [max, setMax] = useState(0);
+  const formatPrice = numeral(homePrice).format('0,0');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    setFill((event.target.value / max) * 100);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    setFill((e.target.value / max) * 100);
+    handlePriceChange(e.target.value);
   };
 
   const styles = {
@@ -42,14 +44,29 @@ const HomePrice = ({ homePrice }) => {
       rgb(25, 209, 212) ${fill}%,
       rgb(205, 209, 212) 100%)`,
   };
+
+  useEffect(() => {
+    setMax(homePrice * 1.5);
+  }, []);
+
   return (
-    <homePriceContain>
+    <HomePriceContain>
       <TopContain className="top-container">
         <h4>Home Price</h4>
-        <input type="text" className="money-input" />
+        <input type="text" className="money-input" value={`$${formatPrice}`} />
       </TopContain>
-      <input style={styles} className="range" type="range" min="0" max={max} step="10" value={value} onChange={handleChange} />
-    </homePriceContain>
+      <input
+        style={styles}
+        className="range"
+        type="range"
+        min="0"
+        max={max}
+        step="10"
+        value={value}
+        onChange={handleChange}
+      />
+      {/* <RangeSlider min={0} max={1500000} /> */}
+    </HomePriceContain>
   );
 };
 

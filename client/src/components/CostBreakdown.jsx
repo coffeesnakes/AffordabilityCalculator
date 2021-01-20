@@ -11,29 +11,32 @@ align-items: space-between;
 padding: 16px 0px 16px 16px;
 `;
 
-const CostBreakdown = ({ homePrice }) => (
-  <CostContain>
-    <Cost
-      color="rgb(5, 34, 134)"
-      title="Principle & Interest"
-      homePrice={homePrice}
-    />
-    <Cost
-      color="rgb(0, 173, 187)"
-      title="Property Taxes"
-      homePrice={homePrice}
-    />
-    <Cost
-      color="rgb(194, 213, 0)"
-      title="Home Insurance"
-      homePrice={homePrice}
-    />
-    <Cost
-      color="rgb(206, 182, 255)"
-      title="Mortgage ins. & other"
-      homePrice={homePrice}
-    />
-  </CostContain>
-);
+const CostBreakdown = ({ state }) => {
+  const { mortgageIns, principle, propertyTaxes, homeInsurance } = state;
+  return (
+    <CostContain>
+      <Cost
+        color="rgb(5, 34, 134)"
+        title="Principle & Interest"
+        display={principle}
+      />
+      <Cost
+        color="rgb(0, 173, 187)"
+        title="Property Taxes"
+        display={propertyTaxes}
+      />
+      <Cost
+        color="rgb(194, 213, 0)"
+        title="Home Insurance"
+        display={homeInsurance}
+      />
+      <Cost
+        color="rgb(206, 182, 255)"
+        title="Mortgage ins. & other"
+        display={mortgageIns}
+      />
+    </CostContain>
+  );
+};
 
 export default CostBreakdown;

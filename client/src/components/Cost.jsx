@@ -25,13 +25,13 @@ background-color: $({(color)} => color);
 margin-right: 10px;
 `;
 
-const Cost = ({ color, title, homePrice }) => (
+const Cost = ({ color, title, display }) => (
   <CostContain>
     <CostDescription>
       <ColorRound color={color} />
       {title}
     </CostDescription>
-    <h4>$3000</h4>
+    <h4>{`$${display}`}</h4>
   </CostContain>
 );
 
