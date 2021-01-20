@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Display from './Display';
 import Controls from './Controls';
-import * as calc from './utils/calculator';
+import * as calc from '../utils/calculator';
 
 const AppContainer = styled.div`
 width: 100%;
@@ -36,16 +36,38 @@ class App extends Component {
     this.handlePriceChange(1400000);
   }
 
-  render() {
-    const { payment, homePrice } = this.state;
+  handlePriceChange(homePrice) {
+    const downPayment = calc.calculateAmountDown(homePrice, this.state.percentDown);
+    const propTax = calc.calcPropTax(homePrice);
+    const principle = calc.calcPrinciple(homePrice, downPayment, this.state.interestRate, 244);
+    const payment = calc.calcPayment(principle, propTax, this.state.mortgageIns);
+    const percentDown = calc.calculatePercentDown(homePrice, downPayment);
 
-    if (!homePrice) return (<div>Loading...</div>);
+    this.setState({
+      homePrice,
+      propertyTaxes: propTax,
+      principle,
+      payment,
+      downPayment,
+      loading: false,
+    });
+  }
+
+  render() {
+    const { payment, homePrice, interestRate, percentDown, downPayment, principle, loading,
+      propertyTaxes, mortgageIns } = this.state;
 
     return (
       <AppContainer>
         <Header payment={payment} />
-        <Controls homePrice={homePrice} />
-        <Display homePrice={homePrice} />
+        <Controls
+          homePrice={homePrice}
+          handlePriceChange={this.handlePriceChange}
+          state={this.state}
+          downPayment={downPayment}
+          interestRate={interestRate}
+        />
+        <Display homePrice={homePrice} state={this.state} />
       </AppContainer>
     );
   }
