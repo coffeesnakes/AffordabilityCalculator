@@ -31,10 +31,15 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
   const [max, setMax] = useState(0);
   const formatPrice = numeral(homePrice).format('0,0');
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-    setFill((e.target.value / max) * 100);
-    handlePriceChange(e.target.value);
+  const handleChange = (event) => {
+    let target = event.target.value;
+    if (target[0] === '$') {
+      const pureValue = target.slice(1);
+      target = numeral(pureValue).value();
+    }
+    setValue(target);
+    setFill((target / max) * 100);
+    handlePriceChange(target);
   };
 
   const styles = {
@@ -53,7 +58,7 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
     <HomePriceContain>
       <TopContain className="top-container">
         <h4>Home Price</h4>
-        <input type="text" className="money-input" value={`$${formatPrice}`} />
+        <input type="text" className="money-input" value={`$${formatPrice}`} onChange={handleChange} />
       </TopContain>
       <input
         style={styles}
