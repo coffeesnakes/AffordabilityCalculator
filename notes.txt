@@ -1,0 +1,6 @@
+where to hold state?
+
+i'll probably maintain state and data in the top level parent component, but would it more more sense have child components pass data upward (lifting state)
+and then doing the calculations? Or am I assuming correctly that I should hold state in the top level component and then just pass data down after calculations were made?  I guess when I get further I could test the efficiency of both but that refactor could be a big time sink
+
+research SVG's for doughnut chart and review those few articles I have in bookmarks and just get that set up
