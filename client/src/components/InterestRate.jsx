@@ -26,11 +26,11 @@ input {
 }
 `;
 
-const InterestRate = ({ homePrice }) => (
+const InterestRate = ({ homePrice, interestRate }) => (
   <InterestRateContain>
     <TopContain>
       <h4>Interest Rate</h4>
-      <input type="text" className="money-input"></input>
+      <input type="text" className="money-input" value={interestRate}></input>
     </TopContain>
     <RangeSlider homePrice={homePrice} />
   </InterestRateContain>

@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loanType: '30-year fixed',
+      loanType: "30-year fixed",
       homePrice: null,
       payment: null,
       downPayment: null,
@@ -37,10 +37,22 @@ class App extends Component {
   }
 
   handlePriceChange(homePrice) {
-    const downPayment = calc.calculateAmountDown(homePrice, this.state.percentDown);
+    const downPayment = calc.calculateAmountDown(
+      homePrice,
+      this.state.percentDown
+    );
     const propTax = calc.calcPropTax(homePrice);
-    const principle = calc.calcPrinciple(homePrice, downPayment, this.state.interestRate, 244);
-    const payment = calc.calcPayment(principle, propTax, this.state.mortgageIns);
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      this.state.interestRate,
+      244
+    );
+    const payment = calc.calcPayment(
+      principle,
+      propTax,
+      this.state.mortgageIns
+    );
     const percentDown = calc.calculatePercentDown(homePrice, downPayment);
 
     this.setState({
@@ -54,8 +66,19 @@ class App extends Component {
   }
 
   render() {
-    const { payment, homePrice, interestRate, percentDown, downPayment, principle, loading,
-      propertyTaxes, mortgageIns } = this.state;
+    const {
+      payment,
+      homePrice,
+      interestRate,
+      percentDown,
+      downPayment,
+      principle,
+      loading,
+      propertyTaxes,
+      mortgageIns,
+    } = this.state;
+
+    if (loading) return <div>Loading...</div>;
 
     return (
       <AppContainer>

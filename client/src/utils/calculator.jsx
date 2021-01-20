@@ -4,11 +4,17 @@ export const calculatePercentDown = (homePrice, amountDown) => amountDown / home
 
 export const calcPropTax = (homePrice) => Math.floor(homePrice * 0.00056);
 
-export const calcPrinciple = (homePrice, downPayment, interestRate, mortgageType) => {
+export const calcPrinciple = (
+  homePrice,
+  downPayment,
+  interestRate,
+  mortgageType,
+) => {
   const amountOwed = homePrice - downPayment;
-  const totalWithInterest = amountOwed * (1 + (interestRate / 100));
+  const totalWithInterest = amountOwed * (1 + interestRate / 100);
   return Math.floor(totalWithInterest / mortgageType);
 };
 
 // eslint-disable-next-line max-len
-export const calcPayment = (principle, propertyTax, mortgageInsurance = 0) => Math.floor(principle + propertyTax + mortgageInsurance + 75);
+export const calcPayment = (principle, propertyTax, mortgageInsurance = 0) => (Math.floor(principle + propertyTax + mortgageInsurance + 75)
+);
