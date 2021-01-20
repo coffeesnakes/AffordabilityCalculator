@@ -15,6 +15,5 @@ export const calcPrinciple = (
   return Math.floor(totalWithInterest / mortgageType);
 };
 
-// eslint-disable-next-line max-len
 export const calcPayment = (principle, propertyTax, mortgageInsurance = 0) => (Math.floor(principle + propertyTax + mortgageInsurance + 75)
 );
