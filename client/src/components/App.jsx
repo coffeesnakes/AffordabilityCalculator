@@ -30,6 +30,8 @@ class App extends Component {
       error: null,
     };
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleDownPaymentChange = this.handleDownPaymentChange.bind(this);
+    this.handlePercentDownChange = this.handlePercentDownChange.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +67,45 @@ class App extends Component {
     });
   }
 
+  handleDownPaymentChange(downPayment) {
+    const { homePrice, mortgageIns, propertyTaxes } = this.state;
+    const percentDown = calc.calculatePercentDown(homePrice, downPayment);
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      percentDown,
+      244
+    );
+    const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
+
+    this.setState({
+      principle,
+      payment,
+      downPayment,
+      percentDown,
+    });
+  }
+
+  handlePercentDownChange(percentDown) {
+    percentDown = percentDown / 100;
+    const { homePrice, mortgageIns, propertyTaxes } = this.state;
+    const downPayment = calc.calculateAmountDown(homePrice, percentDown);
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      percentDown,
+      244,
+    );
+    const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
+
+    this.setState({
+      principle,
+      payment,
+      downPayment,
+      percentDown,
+    });
+  }
+
   render() {
     const {
       payment,
@@ -86,6 +127,8 @@ class App extends Component {
         <Controls
           homePrice={homePrice}
           handlePriceChange={this.handlePriceChange}
+          handleDownPaymentChange={this.handleDownPaymentChange}
+          handlePercentDownChange={this.handlePercentDownChange}
           state={this.state}
           downPayment={downPayment}
           interestRate={interestRate}
