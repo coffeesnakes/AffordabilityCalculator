@@ -67,6 +67,9 @@ const CostBreakdown = ({ state }) => {
         title="Mortgage ins. & other"
         display={mortgageIns}
       />
+      <BtnContain>
+        <Btn>See Today's Mortgage Rates</Btn>
+      </BtnContain>
     </CostContain>
   );
 };
