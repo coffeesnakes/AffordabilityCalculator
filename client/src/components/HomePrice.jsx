@@ -70,7 +70,6 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
         value={value}
         onChange={handleChange}
       />
-      {/* <RangeSlider min={0} max={1500000} /> */}
     </HomePriceContain>
   );
 };
