@@ -32,10 +32,22 @@ class App extends Component {
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleDownPaymentChange = this.handleDownPaymentChange.bind(this);
     this.handlePercentDownChange = this.handlePercentDownChange.bind(this);
+    this.handleInterestChange = this.handleInterestChange.bind(this);
   }
 
   componentDidMount() {
     this.handlePriceChange(1400000);
+  }
+
+  handleInterestChange(interestRate) {
+    console.log('ayylmao we in interest rate');
+    const { homePrice, mortgageIns, propertyTaxes, downPayment } = this.state;
+    const principle = calc.calcPrinciple(homePrice, downPayment, interestRate, 244);
+    const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
+
+    this.setState({
+      principle, payment, interestRate,
+    });
   }
 
   handlePriceChange(homePrice) {
@@ -74,7 +86,7 @@ class App extends Component {
       homePrice,
       downPayment,
       percentDown,
-      244
+      244,
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -88,12 +100,12 @@ class App extends Component {
 
   handlePercentDownChange(percentDown) {
     percentDown = percentDown / 100;
-    const { homePrice, mortgageIns, propertyTaxes } = this.state;
+    const { homePrice, mortgageIns, propertyTaxes, interestRate } = this.state;
     const downPayment = calc.calculateAmountDown(homePrice, percentDown);
     const principle = calc.calcPrinciple(
       homePrice,
       downPayment,
-      percentDown,
+      interestRate,
       244,
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
@@ -129,6 +141,7 @@ class App extends Component {
           handlePriceChange={this.handlePriceChange}
           handleDownPaymentChange={this.handleDownPaymentChange}
           handlePercentDownChange={this.handlePercentDownChange}
+          handleInterestChange={this.handleInterestChange}
           state={this.state}
           downPayment={downPayment}
           interestRate={interestRate}
