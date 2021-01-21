@@ -2,6 +2,8 @@ const request = require('supertest');
 
 const port = 3003;
 
+// homes id tests;
+
 describe('/homes/:id', () => {
   const id = Math.floor(Math.random() * 99);
 
@@ -20,9 +22,10 @@ describe('/homes/:id', () => {
       .expect(200, done);
   });
 });
-describe('/mortgage/:id', () => {
-  const id = Math.floor(Math.random() * 99);
 
+// mortgage routes tests;
+
+describe('/mortgage/:id', () => {
   it('Sends get request successfully', (data) => {
     request(`localhost:${port}`).get('/mortgage').expect(200, data);
   });
