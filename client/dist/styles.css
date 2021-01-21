@@ -8,6 +8,11 @@ body {
  font-family: Roboto, "Segoe UI Bold", Arial, sans-serif;
  font-weight: 100;
 }
+h1 {
+  font-weight: 500;
+  font-size: 38px;
+  letter-spacing: 1px;
+}
 h3 {
   letter-spacing: .5px;
   font-size: 15px;

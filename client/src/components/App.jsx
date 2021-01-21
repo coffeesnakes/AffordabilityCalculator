@@ -25,7 +25,7 @@ class App extends Component {
       principle: null,
       propertyTaxes: null,
       homeInsurance: 75,
-      mortgageIns: 0,
+      mortgageIns: 200,
       loading: true,
       error: null,
     };
