@@ -6,7 +6,7 @@ display: flex;
 flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
-margin: 4px 0;
+margin: 3px 0;
 `;
 
 const CostDescription = styled.div`
@@ -18,11 +18,11 @@ font-size: 16px;
 `;
 
 const ColorRound = styled.div`
-width: 16px;
-height: 16px;
-border-radius: 100px;
-background-color: $({(color)} => color);
-margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  background-color: ${({ color }) => color};
+  margin-right: 10px;
 `;
 
 const Cost = ({ color, title, display }) => (

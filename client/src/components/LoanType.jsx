@@ -65,11 +65,13 @@ const Arrow = styled.i`
   transform: rotate(45deg);
 `;
 
-const LoanType = () => {
+const LoanType = ({ handleLoanTypeChange }) => {
   const [selectValue, setSelectValue] = useState("30-year fixed");
 
-  const handleChange = (e) => {
-    setSelectValue(e.target.value);
+  const handleChange = (event) => {
+    const txt = event.target.options[event.target.selectedIndex].textContent;
+    setSelectValue(txt);
+    handleLoanTypeChange(event.target.value);
   };
 
   return (

@@ -15,6 +15,10 @@ const ControlsContain = styled.div`
   background-color: rgb(245, 246, 247);
   padding: 0px 16px 16px 16px;
   margin-top: 16px;
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const Controls = ({ homePrice, handlePriceChange, handleDownPaymentChange, handlePercentDownChange, state, downPayment, interestRate, handleInterestChange }) => (

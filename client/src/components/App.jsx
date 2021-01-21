@@ -33,6 +33,7 @@ class App extends Component {
     this.handleDownPaymentChange = this.handleDownPaymentChange.bind(this);
     this.handlePercentDownChange = this.handlePercentDownChange.bind(this);
     this.handleInterestChange = this.handleInterestChange.bind(this);
+    this.handleLoanTypeChange = this.handleLoanTypeChange.bind(this);
   }
 
   componentDidMount() {
@@ -40,13 +41,19 @@ class App extends Component {
   }
 
   handleInterestChange(interestRate) {
-    console.log('ayylmao we in interest rate');
     const { homePrice, mortgageIns, propertyTaxes, downPayment } = this.state;
-    const principle = calc.calcPrinciple(homePrice, downPayment, interestRate, 244);
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      interestRate,
+      244
+    );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
     this.setState({
-      principle, payment, interestRate,
+      principle,
+      payment,
+      interestRate,
     });
   }
 
@@ -86,7 +93,7 @@ class App extends Component {
       homePrice,
       downPayment,
       percentDown,
-      244,
+      244
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -106,7 +113,7 @@ class App extends Component {
       homePrice,
       downPayment,
       interestRate,
-      244,
+      244
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -115,6 +122,30 @@ class App extends Component {
       payment,
       downPayment,
       percentDown,
+    });
+  }
+
+  handleLoanTypeChange(loanType) {
+    const {
+      homePrice,
+      downPayment,
+      interestRate,
+      propertyTaxes,
+      mortgageIns,
+    } = this.state;
+
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      interestRate,
+      loanType,
+    );
+    const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
+
+    this.setState({
+      principle,
+      loanType,
+      payment,
     });
   }
 
@@ -142,6 +173,7 @@ class App extends Component {
           handleDownPaymentChange={this.handleDownPaymentChange}
           handlePercentDownChange={this.handlePercentDownChange}
           handleInterestChange={this.handleInterestChange}
+          handleLoanTypeChange={this.handleLoanTypeChange}
           state={this.state}
           downPayment={downPayment}
           interestRate={interestRate}
