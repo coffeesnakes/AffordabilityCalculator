@@ -6,7 +6,7 @@
 
   - https://github.com/Archon-Design/similar-homes
   - https://github.com/Archon-Design/PhotoGallery
-  - insert erics repo here
+  - https://github.com/Archon-Design/Local-Review
 
 
 ## Table of Contents

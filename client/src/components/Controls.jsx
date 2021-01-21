@@ -17,11 +17,21 @@ const ControlsContain = styled.div`
   margin-top: 16px;
 `;
 
-const Controls = ({ homePrice, handlePriceChange, state, downPayment, interestRate }) => (
+const Controls = ({ homePrice, handlePriceChange, handleDownPaymentChange, handlePercentDownChange, state, downPayment, interestRate, handleInterestChange }) => (
   <ControlsContain>
     <HomePrice homePrice={homePrice} handlePriceChange={handlePriceChange} />
-    <DownPayment homePrice={homePrice} state={state} downPayment={downPayment} />
-    <InterestRate homePrice={homePrice} interestRate={interestRate} />
+    <DownPayment
+      homePrice={homePrice}
+      state={state}
+      downPayment={downPayment}
+      handleDownPaymentChange={handleDownPaymentChange}
+      handlePercentDownChange={handlePercentDownChange}
+    />
+    <InterestRate
+      homePrice={homePrice}
+      interestRate={interestRate}
+      handleInterestChange={handleInterestChange}
+    />
     <LoanType />
   </ControlsContain>
 );
