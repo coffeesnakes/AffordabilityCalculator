@@ -135,3 +135,10 @@ select:focus {
 select:not(:-internal-list-box) {
   overflow: visible !important;
 }
+
+.bold {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .5px;
+  color: black;
+}
