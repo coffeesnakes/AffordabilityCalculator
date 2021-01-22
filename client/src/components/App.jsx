@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Header from './Header';
 import Display from './Display';
 import Controls from './Controls';
+import LenderModal from './LenderModal';
+
 import * as calc from '../utils/calculator';
 
 const AppContainer = styled.div`
@@ -179,6 +181,7 @@ class App extends Component {
           interestRate={interestRate}
         />
         <Display homePrice={homePrice} state={this.state} />
+        <LenderModal />
       </AppContainer>
     );
   }

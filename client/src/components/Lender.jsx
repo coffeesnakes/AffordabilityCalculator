@@ -2,14 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LenderContain = styled.div`
-width: 100%;
-height: 130px;
-display: flex;
-flex-flow: row nowrap;
-justify-content: flex-start;
-align-items: center;
-border-bottom: 1px solid #D1D1D5;
-font-weight: 200;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #d1d1d5;
+  font-weight: 200;
+  transition: all 0.05s;
+  cursor: pointer;
+  &:hover {
+    background-color: #f5f6f7;
+  }
 `;
 
 const LenderInfo = styled.div`
@@ -20,6 +25,10 @@ const LenderInfo = styled.div`
   align-items: flex-start;
   height: 100%;
   padding-left: 20px;
+  color: #596b82;
+  div {
+    padding: 3px 0;
+  }
 `;
 
 const Quotes = styled.div`
@@ -37,7 +46,21 @@ const Quotes = styled.div`
   }
 `;
 
-const Arrow = styled.div`
+const Green = styled.span`
+  color: #10a75f;
+  cursor: pointer;
+  font-weight: 100;
+`;
+
+const Arrow = styled.i`
+  border: solid #10a75f;
+  border-width: 2px 2px 0 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+`;
+
+const ArrowContainer = styled.div`
   flex: 1;
   height: 100%;
   display: flex;
@@ -53,19 +76,30 @@ const Tooltip = styled.span`
 `;
 
 const Lender = () => (
-
   <LenderContain>
     <LenderInfo>
-      <div>30 Year Fixed</div>
-      <div>Random Lender</div>
+      <div>30 year fixed</div>
+      <div>
+        <Green>Random Lender</Green>
+      </div>
       <div>***** 6996 Reviews</div>
     </LenderInfo>
     <Quotes>
-      <div><span className="bold">2.749 %</span> APR</div>
-      <div><span className="bold">2.749 %</span> RATE</div>
-      <div><span className="bold"></span></div>
-      <div><span className="bold"></span></div>
+      <div>
+        <span className="bold">2.749 %</span> APR
+      </div>
+      <div>
+        <span className="bold">2.749 %</span> RATE
+      </div>
+      <div>
+        <span className="bold">$799</span>/MO.
+      </div>
+      <div><span className="bold">$547</span>LENDER FEES
+</div>
     </Quotes>
+    <ArrowContainer>
+      <Arrow />
+    </ArrowContainer>
   </LenderContain>
 );
 
