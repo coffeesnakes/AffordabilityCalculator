@@ -67,7 +67,7 @@ class App extends Component {
       homePrice,
       downPayment,
       this.state.interestRate,
-      244
+      244,
     );
     const payment = calc.calcPayment(
       principle,

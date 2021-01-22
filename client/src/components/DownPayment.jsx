@@ -88,21 +88,23 @@ const DownPayment = ({
       rgb(205, 209, 212) 100%)`,
   };
 
-  const handleChange = (e) => {
-    let targetVal = e.target.value;
+  const handleChange = (event) => {
+    let targetVal = event.target.value;
 
     if (targetVal[0] === "$") {
       const pureVal = targetVal.slice(1);
       targetVal = numeral(pureVal).value();
     }
-
+    event.target.style.setProperty(
+      '--webkitProgressPercent',
+      `${(targetVal / max) * 100 - 4}%`,
+    );
     setValue(targetVal);
-    setFill((targetVal / max) * 100);
     handleDownPaymentChange(targetVal);
   };
 
-  const handlePercent = (e) => {
-    let val = e.target.value.replace("%", "");
+  const handlePercent = (event) => {
+    let val = event.target.value.replace('%', '');
 
     if (val === null) {
       val = "";

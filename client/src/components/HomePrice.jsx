@@ -28,7 +28,6 @@ const TopContain = styled.div`
 
 const HomePrice = ({ homePrice, handlePriceChange }) => {
   const [value, setValue] = useState(homePrice);
-  const [fill, setFill] = useState(75);
   const [max, setMax] = useState(0);
   const formatPrice = numeral(homePrice).format('0,0');
 
@@ -38,21 +37,16 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
       const pureValue = target.slice(1);
       target = numeral(pureValue).value();
     }
+    event.target.style.setProperty(
+      '--webkitProgressPercent',
+      `${(target / max) * 100 - 4}%`,
+    );
     setValue(target);
-    setFill((target / max) * 100);
     handlePriceChange(target);
   };
 
-  const styles = {
-    background: `linear-gradient(to right,
-      rgb(0, 120, 130) 0%,
-      rgb(0, 120, 130) ${fill}%,
-      rgb(25, 209, 212) ${fill}%,
-      rgb(205, 209, 212) 100%)`,
-  };
-
   useEffect(() => {
-    setMax(homePrice * 1.5);
+    setMax(homePrice * 3.1);
   }, []);
 
   return (
@@ -61,16 +55,7 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
         <h4>Home Price</h4>
         <input type="text" className="money-input" value={`$${formatPrice}`} onChange={handleChange} />
       </TopContain>
-      <input
-        style={styles}
-        className="range"
-        type="range"
-        min="0"
-        max={max}
-        step="10"
-        value={value}
-        onChange={handleChange}
-      />
+      <input className="range" type="range" min="0" max={max} step="10" value={value} onChange={handleChange} />
     </HomePriceContain>
   );
 };
