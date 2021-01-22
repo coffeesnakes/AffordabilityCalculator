@@ -5,24 +5,25 @@ import numeral from 'numeral';
 import RangeSlider from './RangeSlider';
 
 const HomePriceContain = styled.div`
-flex: 1;
-display: flex;
-flex-flow: column nowrap;
-justify-content: flex-start;
-align-items: space-between
-border-style: solid;
-border-color: transparent;
-border-width: 15px 8px 9px;
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: space-between;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 15px 8px 0px;
 `;
+
 const TopContain = styled.div`
-display: flex;
-flex-flow: row nowrap;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 25px;
-input {
-  width: 112px;
-}
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  input {
+    width: 112px;
+  }
 `;
 
 const HomePrice = ({ homePrice, handlePriceChange }) => {
@@ -56,7 +57,7 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
 
   return (
     <HomePriceContain>
-      <TopContain className="top-container">
+      <TopContain>
         <h4>Home Price</h4>
         <input type="text" className="money-input" value={`$${formatPrice}`} onChange={handleChange} />
       </TopContain>

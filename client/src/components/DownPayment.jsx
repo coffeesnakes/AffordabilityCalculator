@@ -7,7 +7,7 @@ const DownPaymentContainer = styled.div`
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: space-between;
   border-style: solid;
   border-color: transparent;
@@ -21,6 +21,12 @@ const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  border-width: 15px 8px 0px;
+  h4 {
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+  }
 `;
 
 const InputContainer = styled.div`
