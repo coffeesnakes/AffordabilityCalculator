@@ -7,7 +7,7 @@ const InterestRateContain = styled.div`
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: space-between;
   border-style: solid;
   border-color: transparent;
@@ -28,24 +28,19 @@ input {
 
 const InterestRate = ({ homePrice, interestRate, handleInterestChange }) => {
   const [value, setValue] = useState(interestRate);
-  const [fill, setFill] = useState(75);
   const [max, setMax] = useState(0);
 
-const handleChange = (e) => {
-    let val = e.target.value.replace('%', '');
+const handleChange = (event) => {
+    let val = event.target.value.replace('%', '');
     if (val === null) {
       val = '';
     }
+    event.target.style.setProperty(
+      '--webkitProgressPercent',
+      `${(val / max) * 100 - 4}%`,
+    );
     handleInterestChange(val);
     setValue(val);
-  };
-
-  const styles = {
-    background: `linear-gradient(to right,
-      rgb(0, 120, 130) 0%,
-      rgb(0, 120, 130) ${fill}%,
-      rgb(205, 209, 212) ${fill}%,
-      rgb(205, 209, 212) 100%)`,
   };
 
   useEffect(() => {
@@ -59,7 +54,6 @@ const handleChange = (e) => {
         <input type="text" className="money-input" value={`${interestRate}%`} onChange={handleChange} />
       </TopContain>
       <input
-        style={styles}
         className="range"
         type="range"
         min="0"

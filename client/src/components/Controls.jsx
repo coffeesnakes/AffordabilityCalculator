@@ -10,14 +10,18 @@ const ControlsContain = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  width: 100%;
+  width: ;
   border-radius: 8px;
-  background-color: rgb(245, 246, 247);
+  background-color: rgb(255, 255, 255);
   padding: 0px 16px 16px 16px;
   margin-top: 16px;
+
 `;
 
-const Controls = ({ homePrice, handlePriceChange, handleDownPaymentChange, handlePercentDownChange, state, downPayment, interestRate, handleInterestChange }) => (
+const Controls = ({
+  homePrice, handlePriceChange, handleDownPaymentChange, handlePercentDownChange,
+  state, downPayment, interestRate, handleInterestChange,
+}) => (
   <ControlsContain>
     <HomePrice homePrice={homePrice} handlePriceChange={handlePriceChange} />
     <DownPayment

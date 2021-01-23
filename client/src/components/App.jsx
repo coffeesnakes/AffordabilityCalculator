@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Header from './Header';
 import Display from './Display';
 import Controls from './Controls';
+import LenderModal from './LenderModal';
+
 import * as calc from '../utils/calculator';
 
 const AppContainer = styled.div`
@@ -28,11 +30,14 @@ class App extends Component {
       mortgageIns: 200,
       loading: true,
       error: null,
+      showModal: false,
     };
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleDownPaymentChange = this.handleDownPaymentChange.bind(this);
     this.handlePercentDownChange = this.handlePercentDownChange.bind(this);
     this.handleInterestChange = this.handleInterestChange.bind(this);
+    this.handleLoanTypeChange = this.handleLoanTypeChange.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -40,13 +45,19 @@ class App extends Component {
   }
 
   handleInterestChange(interestRate) {
-    console.log('ayylmao we in interest rate');
     const { homePrice, mortgageIns, propertyTaxes, downPayment } = this.state;
-    const principle = calc.calcPrinciple(homePrice, downPayment, interestRate, 244);
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      interestRate,
+      244
+    );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
     this.setState({
-      principle, payment, interestRate,
+      principle,
+      payment,
+      interestRate,
     });
   }
 
@@ -60,7 +71,7 @@ class App extends Component {
       homePrice,
       downPayment,
       this.state.interestRate,
-      244
+      244,
     );
     const payment = calc.calcPayment(
       principle,
@@ -86,7 +97,7 @@ class App extends Component {
       homePrice,
       downPayment,
       percentDown,
-      244,
+      244
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -106,7 +117,7 @@ class App extends Component {
       homePrice,
       downPayment,
       interestRate,
-      244,
+      244
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -116,6 +127,35 @@ class App extends Component {
       downPayment,
       percentDown,
     });
+  }
+
+  handleLoanTypeChange(loanType) {
+    const {
+      homePrice,
+      downPayment,
+      interestRate,
+      propertyTaxes,
+      mortgageIns,
+    } = this.state;
+
+    const principle = calc.calcPrinciple(
+      homePrice,
+      downPayment,
+      interestRate,
+      loanType,
+    );
+    const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
+
+    this.setState({
+      principle,
+      loanType,
+      payment,
+    });
+  }
+
+  toggleModal(event) {
+    const { showModal } = this.state;
+    this.setState({ showModal: !showModal });
   }
 
   render() {
@@ -129,6 +169,7 @@ class App extends Component {
       loading,
       propertyTaxes,
       mortgageIns,
+      showModal,
     } = this.state;
 
     if (loading) return <div>Loading...</div>;
@@ -142,11 +183,13 @@ class App extends Component {
           handleDownPaymentChange={this.handleDownPaymentChange}
           handlePercentDownChange={this.handlePercentDownChange}
           handleInterestChange={this.handleInterestChange}
+          handleLoanTypeChange={this.handleLoanTypeChange}
           state={this.state}
           downPayment={downPayment}
           interestRate={interestRate}
         />
-        <Display homePrice={homePrice} state={this.state} />
+        <Display homePrice={homePrice} state={this.state} toggleModal={this.toggleModal} />
+        { showModal && <LenderModal toggleModal />}
       </AppContainer>
     );
   }

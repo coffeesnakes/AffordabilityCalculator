@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 body {
- font-family: Roboto, "Segoe UI Bold", Arial, sans-serif;
+ font-family: Cabin, Roboto, "Segoe UI Bold", Arial, sans-serif;
  font-weight: 100;
 }
 h1 {
@@ -51,6 +52,7 @@ input[type=range] {
   margin: 0px;
   padding: 0px;
   cursor: default;
+  --webkitProgressPercent: 60%;
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -59,7 +61,7 @@ input[type=range]::-webkit-slider-runnable-track {
   margin: 0px;
   padding: 0px;
   cursor: default;
-  background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 42.318%, rgb(205, 209, 212) 42.318%, rgb(205, 209, 212) 100%);
+  background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) var(--webkitProgressPercent), rgb(205, 209, 212) var(--webkitProgressPercent), rgb(205, 209, 212) 100%);
 }
 
 input.range:focus {
@@ -132,4 +134,11 @@ select:focus {
 
 select:not(:-internal-list-box) {
   overflow: visible !important;
+}
+
+.bold {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .5px;
+  color: black;
 }

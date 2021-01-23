@@ -15,8 +15,8 @@ const Payment = styled.div`
  font-weight: 400;
  font-size: 12px;
  line-height: 1.5;
-
 `;
+
 const Header = ({ payment }) => {
   const formatPayment = numeral(payment).format('0,0');
 

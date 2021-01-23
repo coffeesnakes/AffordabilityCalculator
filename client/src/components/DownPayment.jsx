@@ -7,7 +7,7 @@ const DownPaymentContainer = styled.div`
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: space-between;
   border-style: solid;
   border-color: transparent;
@@ -21,6 +21,12 @@ const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  border-width: 15px 8px 0px;
+  h4 {
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -82,21 +88,23 @@ const DownPayment = ({
       rgb(205, 209, 212) 100%)`,
   };
 
-  const handleChange = (e) => {
-    let targetVal = e.target.value;
+  const handleChange = (event) => {
+    let targetVal = event.target.value;
 
     if (targetVal[0] === "$") {
       const pureVal = targetVal.slice(1);
       targetVal = numeral(pureVal).value();
     }
-
+    event.target.style.setProperty(
+      '--webkitProgressPercent',
+      `${(targetVal / max) * 100 - 4}%`,
+    );
     setValue(targetVal);
-    setFill((targetVal / max) * 100);
     handleDownPaymentChange(targetVal);
   };
 
-  const handlePercent = (e) => {
-    let val = e.target.value.replace("%", "");
+  const handlePercent = (event) => {
+    let val = event.target.value.replace('%', '');
 
     if (val === null) {
       val = "";
