@@ -29,18 +29,36 @@ const LendersContainer = styled.div`
   padding: 20px;
 `;
 
-const LenderModal = () => {
+const LenderModal = ({ toggleModal }) => {
 const [lenders, setLenders] = useState([]);
 const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchLenders = async () => {
+      const { data } = await axios.get('/lenders');
+      console.log(data);
+      setLenders(data);
+      setLoading(false);
+    };
+    fetchLenders();
+  }, []);
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const filterBy30Year = lenders.filter((lender) => lender.offerings.terms === '30 Year Fixed');
+
+  const filterBy15Year = lenders.filter((lender) => lender.offerings.terms === '15 Year Fixed');
+
   return (
-    <ModalBackground>
-      <LendersContainer>
-        {console.log(lenders)}
-        <LoanRates />
+    <ModalBackground onClick={toggleModal}>
+      <LendersContainer onClick={handleClick}>
+        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={filterBy30Year} />
+        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={filterBy15Year} />
       </LendersContainer>
     </ModalBackground>
-);
+  );
 };
 
 export default LenderModal;

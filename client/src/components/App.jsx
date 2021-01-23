@@ -30,12 +30,14 @@ class App extends Component {
       mortgageIns: 200,
       loading: true,
       error: null,
+      showModal: false,
     };
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleDownPaymentChange = this.handleDownPaymentChange.bind(this);
     this.handlePercentDownChange = this.handlePercentDownChange.bind(this);
     this.handleInterestChange = this.handleInterestChange.bind(this);
     this.handleLoanTypeChange = this.handleLoanTypeChange.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -151,6 +153,11 @@ class App extends Component {
     });
   }
 
+  toggleModal(event) {
+    const { showModal } = this.state;
+    this.setState({ showModal: !showModal });
+  }
+
   render() {
     const {
       payment,
@@ -162,6 +169,7 @@ class App extends Component {
       loading,
       propertyTaxes,
       mortgageIns,
+      showModal,
     } = this.state;
 
     if (loading) return <div>Loading...</div>;
@@ -180,8 +188,8 @@ class App extends Component {
           downPayment={downPayment}
           interestRate={interestRate}
         />
-        <Display homePrice={homePrice} state={this.state} />
-        <LenderModal />
+        <Display homePrice={homePrice} state={this.state} toggleModal={this.toggleModal} />
+        { showModal && <LenderModal toggleModal />}
       </AppContainer>
     );
   }

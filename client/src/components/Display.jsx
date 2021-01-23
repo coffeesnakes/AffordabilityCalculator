@@ -14,10 +14,10 @@ margin-top 30px;
 
 `;
 
-const Display = ({ homePrice, state }) => (
+const Display = ({ homePrice, state, toggleModal }) => (
   <DisplayContain>
     <Chart state={state} />
-    <CostBreakdown homePrice={homePrice} state={state} />
+    <CostBreakdown homePrice={homePrice} state={state} toggleModal={toggleModal} />
   </DisplayContain>
 );
 

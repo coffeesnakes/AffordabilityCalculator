@@ -79,7 +79,7 @@ const MortgageBtn = styled.a`
   }
 `;
 
-const CostBreakdown = ({ state }) => {
+const CostBreakdown = ({ state, toggleModal }) => {
   const { mortgageIns, principle, propertyTaxes, homeInsurance } = state;
   return (
     <CostContain>
@@ -106,7 +106,7 @@ const CostBreakdown = ({ state }) => {
       <BtnContain>
         <Btn>Get Pre-Qualified</Btn>
         <OrContain>or</OrContain>
-        <MortgageBtn>See Today's Mortgage Rates</MortgageBtn>
+        <MortgageBtn onClick={toggleModal}>See Today's Mortgage Rates</MortgageBtn>
       </BtnContain>
     </CostContain>
   );
