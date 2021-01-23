@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import LoanRates from "./LoanRates.jsx";
-
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
+import LoanRates from './LoanRates';
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -11,6 +10,7 @@ const ModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -18,24 +18,25 @@ const ModalBackground = styled.div`
 `;
 
 const LendersContainer = styled.div`
-  height: 90vh;
+  height: 80%;
   width: 60%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: 20px;
+  overflow: auto;
 `;
 
 const LenderModal = ({ toggleModal }) => {
-const [lenders, setLenders] = useState([]);
-const [loading, setLoading] = useState(true);
+  const [lenders, setLenders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchLenders = async () => {
-      const { data } = await axios.get('/lenders');
+      const { data } = await axios.get('http://localhost:3003/mortgage');
       console.log(data);
       setLenders(data);
       setLoading(false);
@@ -47,15 +48,13 @@ const [loading, setLoading] = useState(true);
     e.stopPropagation();
   };
 
-  const filterBy30Year = lenders.filter((lender) => lender.offerings.terms === '30 Year Fixed');
-
-  const filterBy15Year = lenders.filter((lender) => lender.offerings.terms === '15 Year Fixed');
+  if (loading) return <ModalBackground />;
 
   return (
     <ModalBackground onClick={toggleModal}>
       <LendersContainer onClick={handleClick}>
-        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={filterBy30Year} />
-        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={filterBy15Year} />
+        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} />
+        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} />
       </LendersContainer>
     </ModalBackground>
   );

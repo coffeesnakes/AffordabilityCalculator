@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
-import RangeSlider from './RangeSlider';
 
 const InterestRateContain = styled.div`
   flex: 1;

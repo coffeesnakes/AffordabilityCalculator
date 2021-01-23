@@ -1,7 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
-import RangeSlider from './RangeSlider';
 
 const DownPaymentContainer = styled.div`
   flex: 1;
@@ -75,18 +74,9 @@ const DownPayment = ({
   handlePercentDownChange,
 }) => {
   const [value, setValue] = useState(downPayment);
-  const [fill, setFill] = useState(75);
   const [max, setMax] = useState(0);
   const formatDownPayment = numeral(downPayment).format("0,0");
   const formatDownPercent = Math.floor(state.percentDown * 100);
-
-  const styles = {
-    background: `linear-gradient(to right,
-      rgb(0, 120, 130) 0%,
-      rgb(0, 120, 130) ${fill}%,
-      rgb(205, 209, 212) ${fill}%,
-      rgb(205, 209, 212) 100%)`,
-  };
 
   const handleChange = (event) => {
     let targetVal = event.target.value;
@@ -107,9 +97,8 @@ const DownPayment = ({
     let val = event.target.value.replace('%', '');
 
     if (val === null) {
-      val = "";
+      val = '';
     }
-    console.log(val);
     handlePercentDownChange(val);
   };
 
@@ -137,7 +126,6 @@ const DownPayment = ({
         </InputContainer>
       </TopContainer>
       <input
-        style={styles}
         className="range"
         type="range"
         min="0"

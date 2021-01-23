@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
 
-import RangeSlider from './RangeSlider';
-
 const HomePriceContain = styled.div`
   flex: 1;
   display: flex;

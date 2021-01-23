@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Stars from './Stars';
 
 const LenderContain = styled.div`
   width: 100%;
-  height: 130px;
+  height: 125px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -79,23 +80,15 @@ const Lender = () => (
   <LenderContain>
     <LenderInfo>
       <div>30 year fixed</div>
-      <div>
-        <Green>Random Lender</Green>
-      </div>
-      <div>***** 6996 Reviews</div>
+      <div><Green>Random Lender</Green></div>
+      <Stars rating="3.3" />
     </LenderInfo>
     <Quotes>
       <div>
-        <span className="bold">2.749 %</span> APR
-      </div>
-      <div>
-        <span className="bold">2.749 %</span> RATE
-      </div>
-      <div>
-        <span className="bold">$799</span>/MO.
-      </div>
-      <div><span className="bold">$547</span>LENDER FEES
-</div>
+        <span className="bold">2.749 %</span> APR</div>
+      <div><span className="bold">2.749 %</span> RATE</div>
+      <div><span className="bold">$799</span>/MO.</div>
+      <div><span className="bold">$547</span><Tooltip>LENDER FEES</Tooltip></div>
     </Quotes>
     <ArrowContainer>
       <Arrow />
