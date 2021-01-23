@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.79% </span>
+                <span class="strong">17.65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/19</span>
+                <span class='fraction'>3/17</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.79% </span>
+                <span class="strong">17.65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/19</span>
+                <span class='fraction'>3/17</span>
             </div>
         
             
@@ -120,27 +120,14 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +152,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -174,15 +160,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,15 +168,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,29 +190,29 @@ import numeral from 'numeral';
 import RangeSlider from './RangeSlider';
 &nbsp;
 const HomePriceContain = styled.div`
-flex: 1;
-display: flex;
-flex-flow: column nowrap;
-justify-content: flex-start;
-align-items: space-between
-border-style: solid;
-border-color: transparent;
-border-width: 15px 8px 9px;
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: space-between;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 15px 8px 0px;
 `;
+&nbsp;
 const TopContain = styled.div`
-display: flex;
-flex-flow: row nowrap;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 25px;
-input {
-  width: 112px;
-}
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  input {
+    width: 112px;
+  }
 `;
 &nbsp;
 const HomePrice = <span class="fstat-no" title="function not covered" >({</span> homePrice, handlePriceChange }) =&gt; {
   const [value, setValue] = <span class="cstat-no" title="statement not covered" >useState(homePrice);</span>
-  const [fill, setFill] = <span class="cstat-no" title="statement not covered" >useState(75);</span>
   const [max, setMax] = <span class="cstat-no" title="statement not covered" >useState(0);</span>
   const formatPrice = <span class="cstat-no" title="statement not covered" >numeral(homePrice).format('0,0');</span>
 &nbsp;
@@ -250,39 +222,25 @@ const HomePrice = <span class="fstat-no" title="function not covered" >({</span>
       const pureValue = <span class="cstat-no" title="statement not covered" >target.slice(1);</span>
 <span class="cstat-no" title="statement not covered" >      target = numeral(pureValue).value();</span>
     }
+<span class="cstat-no" title="statement not covered" >    event.target.style.setProperty(</span>
+      '--webkitProgressPercent',
+      `${(target / max) * 100 - 4}%`,
+    );
 <span class="cstat-no" title="statement not covered" >    setValue(target);</span>
-<span class="cstat-no" title="statement not covered" >    setFill((target / max) * 100);</span>
 <span class="cstat-no" title="statement not covered" >    handlePriceChange(target);</span>
   };
 &nbsp;
-  const styles = <span class="cstat-no" title="statement not covered" >{</span>
-    background: `linear-gradient(to right,
-      rgb(0, 120, 130) 0%,
-      rgb(0, 120, 130) ${fill}%,
-      rgb(25, 209, 212) ${fill}%,
-      rgb(205, 209, 212) 100%)`,
-  };
-&nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setMax(homePrice * 1.5);</span>
+<span class="cstat-no" title="statement not covered" >    setMax(homePrice * 3.1);</span>
   }, []);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;HomePriceContain&gt;
-      &lt;TopContain className="top-container"&gt;
+      &lt;TopContain&gt;
         &lt;h4&gt;Home Price&lt;/h4&gt;
         &lt;input type="text" className="money-input" value={`$${formatPrice}`} onChange={handleChange} /&gt;
       &lt;/TopContain&gt;
-      &lt;input
-        style={styles}
-        className="range"
-        type="range"
-        min="0"
-        max={max}
-        step="10"
-        value={value}
-        onChange={handleChange}
-      /&gt;
+      &lt;input className="range" type="range" min="0" max={max} step="10" value={value} onChange={handleChange} /&gt;
     &lt;/HomePriceContain&gt;
   );
 };
@@ -295,7 +253,7 @@ export default HomePrice;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jan 21 2021 10:45:25 GMT-0800 (Pacific Standard Time)
+                at Fri Jan 22 2021 16:19:22 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

@@ -11,6 +11,8 @@ const RatesContainer = styled.div`
   align-items: center;
   border: 1px solid #d1d1d5;
   font-size: 12px;
+  border-radius: 4px 4px 0 0;
+  background-color: #FFF;
 `;
 
 const RatesHeader = styled.div`
