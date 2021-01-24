@@ -26,9 +26,7 @@ const TopContainer = styled.div`
     margin: 0;
     line-height: 20px;
   }
-  @media (max-width: 924px) {
-    margin-bottom: 19px;
-  }
+
 `;
 
 const InputContainer = styled.div`
