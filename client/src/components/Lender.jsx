@@ -76,24 +76,31 @@ const Tooltip = styled.span`
   border-bottom: 1px dashed #a7a6ab;
 `;
 
-const Lender = () => (
+const Lender = ({ loan, lender, type }) => {
+  const ratingTotal = lender.reviews.reduce((i, review) => i + review.rating, 0);
+  const ratingAvg = Math.floor(ratingTotal / lender.reviews.length);
+  console.log(ratingAvg);
+  return (
   <LenderContain>
     <LenderInfo>
-      <div>30 year fixed</div>
-      <div><Green>Random Lender</Green></div>
-      <Stars rating="3.3" />
+      <div>{`${type} fixed`}</div>
+      <div><Green>{lender.name}</Green></div>
+      <div>
+        <Stars rating={ratingAvg} />
+        {`${lender.reviews.length} Reviews`}
+      </div>
     </LenderInfo>
     <Quotes>
       <div>
-        <span className="bold">2.749 %</span> APR</div>
-      <div><span className="bold">2.749 %</span> RATE</div>
-      <div><span className="bold">$799</span>/MO.</div>
-      <div><span className="bold">$547</span><Tooltip>LENDER FEES</Tooltip></div>
+        <span className="bold">{`${loan.apr} %`}</span> APR</div>
+      <div><span className="bold">{`${loan.rate} %`}</span> RATE</div>
+      <div><span className="bold">{`$${loan.fees}`}</span><Tooltip>LENDER FEES</Tooltip></div>
     </Quotes>
     <ArrowContainer>
       <Arrow />
     </ArrowContainer>
   </LenderContain>
-);
+  );
+};
 
 export default Lender;
