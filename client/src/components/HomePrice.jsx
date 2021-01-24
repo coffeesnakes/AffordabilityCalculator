@@ -44,7 +44,7 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
   };
 
   useEffect(() => {
-    setMax(homePrice * 3.1);
+    setMax(homePrice * 1.5);
   }, []);
 
   return (

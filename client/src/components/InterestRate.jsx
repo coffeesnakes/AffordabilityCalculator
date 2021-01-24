@@ -36,7 +36,7 @@ const handleChange = (event) => {
     }
     event.target.style.setProperty(
       '--webkitProgressPercent',
-      `${(val / max) * 100 - 4}%`,
+      `${(val / max) * 100 - 1}%`,
     );
     handleInterestChange(val);
     setValue(val);
