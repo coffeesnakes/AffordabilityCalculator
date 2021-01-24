@@ -26,9 +26,13 @@ const TopContainer = styled.div`
     margin: 0;
     line-height: 20px;
   }
+  @media (max-width: 924px) {
+    margin-bottom: 19px;
+  }
 `;
 
 const InputContainer = styled.div`
+  min-width: 156px;
   .money-input {
     width: 100px;
     border-width: 1px 0px 1px 1px;

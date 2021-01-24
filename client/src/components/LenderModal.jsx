@@ -54,6 +54,7 @@ const LenderModal = ({ toggleModal }) => {
     <ModalBackground onClick={toggleModal}>
       <LendersContainer onClick={handleClick}>
         <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} />
+        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} />
         <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} />
       </LendersContainer>
     </ModalBackground>

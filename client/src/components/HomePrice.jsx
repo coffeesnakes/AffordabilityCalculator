@@ -37,7 +37,7 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
     }
     event.target.style.setProperty(
       '--webkitProgressPercent',
-      `${(target / max) * 100 - 4}%`,
+      `${(target / max) * 97}%`,
     );
     setValue(target);
     handlePriceChange(target);
