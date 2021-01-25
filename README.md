@@ -34,4 +34,4 @@ npm run start -- Will start the server and setup the project.
 npm run react-dev -- Will run webpack bundler.
 
 npm run seed -- seeds the database.
-npm run test -- runs testing suite and
+npm run test -- runs testing suite and gives a coverage report.
