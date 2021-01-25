@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import Header from './Header';
 import Display from './Display';
 import Controls from './Controls';
@@ -8,17 +9,19 @@ import LenderModal from './LenderModal';
 import * as calc from '../utils/calculator';
 
 const AppContainer = styled.div`
-width: 100%;
-padding 20px;
-display: flex;
-flex-flow: column nowrap;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loanType: "30-year fixed",
+      loanType: 244,
       homePrice: null,
       payment: null,
       downPayment: null,
@@ -27,7 +30,7 @@ class App extends Component {
       principle: null,
       propertyTaxes: null,
       homeInsurance: 75,
-      mortgageIns: 200,
+      mortgageIns: 0,
       loading: true,
       error: null,
       showModal: false,
@@ -40,17 +43,19 @@ class App extends Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
-  componentDidMount() {
-    this.handlePriceChange(1400000);
+  async componentDidMount() {
+    const randomIdx = Math.floor(Math.random() * 100);
+    const { data } = await axios.get(`http://localhost:3003/homes/${randomIdx}`);
+    this.handlePriceChange(data.price);
   }
 
   handleInterestChange(interestRate) {
-    const { homePrice, mortgageIns, propertyTaxes, downPayment } = this.state;
+    const { homePrice, mortgageIns, propertyTaxes, downPayment, loanType } = this.state;
     const principle = calc.calcPrinciple(
       homePrice,
       downPayment,
       interestRate,
-      244
+      loanType,
     );
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
@@ -62,16 +67,13 @@ class App extends Component {
   }
 
   handlePriceChange(homePrice) {
-    const downPayment = calc.calculateAmountDown(
-      homePrice,
-      this.state.percentDown
-    );
+    const downPayment = calc.calculateAmountDown(homePrice, this.state.percentDown);
     const propTax = calc.calcPropTax(homePrice);
     const principle = calc.calcPrinciple(
       homePrice,
       downPayment,
       this.state.interestRate,
-      244,
+      this.state.loanType,
     );
     const payment = calc.calcPayment(
       principle,
@@ -91,34 +93,37 @@ class App extends Component {
   }
 
   handleDownPaymentChange(downPayment) {
-    const { homePrice, mortgageIns, propertyTaxes } = this.state;
+    const { homePrice, propertyTaxes, loanType } = this.state;
     const percentDown = calc.calculatePercentDown(homePrice, downPayment);
     const principle = calc.calcPrinciple(
       homePrice,
       downPayment,
       percentDown,
-      244
+      loanType,
     );
+    const mortgageIns = calc.calcMortgageIns(percentDown, homePrice, downPayment);
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
-
     this.setState({
       principle,
       payment,
       downPayment,
       percentDown,
+      mortgageIns,
     });
   }
 
-  handlePercentDownChange(percentDown) {
-    percentDown = percentDown / 100;
-    const { homePrice, mortgageIns, propertyTaxes, interestRate } = this.state;
+  handlePercentDownChange(percentDownUnfiltered) {
+    const percentDown = percentDownUnfiltered / 100;
+
+    const { homePrice, propertyTaxes, interestRate, loanType } = this.state;
     const downPayment = calc.calculateAmountDown(homePrice, percentDown);
     const principle = calc.calcPrinciple(
       homePrice,
       downPayment,
       interestRate,
-      244
+      loanType,
     );
+    const mortgageIns = calc.calcMortgageIns(percentDown, homePrice, downPayment);
     const payment = calc.calcPayment(principle, propertyTaxes, mortgageIns);
 
     this.setState({
@@ -126,6 +131,7 @@ class App extends Component {
       payment,
       downPayment,
       percentDown,
+      mortgageIns,
     });
   }
 
@@ -153,7 +159,7 @@ class App extends Component {
     });
   }
 
-  toggleModal(event) {
+  toggleModal(e) {
     const { showModal } = this.state;
     this.setState({ showModal: !showModal });
   }
@@ -189,7 +195,7 @@ class App extends Component {
           interestRate={interestRate}
         />
         <Display homePrice={homePrice} state={this.state} toggleModal={this.toggleModal} />
-        { showModal && <LenderModal toggleModal />}
+        { showModal && <LenderModal toggleModal={this.toggleModal} />}
       </AppContainer>
     );
   }

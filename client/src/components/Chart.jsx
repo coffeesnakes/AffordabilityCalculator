@@ -9,7 +9,10 @@ justify-content: center;
 align-items: center;
 height: 200px;
 width: 200px;
+max-width: 280px;
+min-width: 280px;
 margin: 0 20px;
+flex-shrink: 0;
 `;
 const PaymentDisplay = styled.div`
 position: absolute;

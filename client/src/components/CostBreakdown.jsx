@@ -10,11 +10,17 @@ const CostContain = styled.div`
   align-items: space-between;
   padding: 16px 0px 16px 16px;
 
+  @media (max-width: 767px) {
+    padding: 16px;
+    width: 100%;
+  }
 `;
 
 const BtnContain = styled.div`
   margin-top: 40px;
   width: 300px;
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `;
 const OrContain = styled.div`

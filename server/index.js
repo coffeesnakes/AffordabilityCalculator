@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 const app = express();
 const port = 3003;
 const homes = require('./routes/homes');
@@ -13,6 +13,7 @@ mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true, u
   .then(() => console.log('connecting to MongoDB ..'));
 
 // parse
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

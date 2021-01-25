@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
-import RangeSlider from './RangeSlider';
 
 const InterestRateContain = styled.div`
   flex: 1;
@@ -37,7 +36,7 @@ const handleChange = (event) => {
     }
     event.target.style.setProperty(
       '--webkitProgressPercent',
-      `${(val / max) * 100 - 4}%`,
+      `${(val / max) * 100 - 1}%`,
     );
     handleInterestChange(val);
     setValue(val);

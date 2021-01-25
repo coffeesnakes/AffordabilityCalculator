@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import numeral from 'numeral';
 
-import RangeSlider from './RangeSlider';
-
 const HomePriceContain = styled.div`
   flex: 1;
   display: flex;
@@ -39,14 +37,14 @@ const HomePrice = ({ homePrice, handlePriceChange }) => {
     }
     event.target.style.setProperty(
       '--webkitProgressPercent',
-      `${(target / max) * 100 - 4}%`,
+      `${(target / max) * 97}%`,
     );
     setValue(target);
     handlePriceChange(target);
   };
 
   useEffect(() => {
-    setMax(homePrice * 3.1);
+    setMax(homePrice * 1.5);
   }, []);
 
   return (

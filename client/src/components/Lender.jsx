@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Stars from './Stars';
 
 const LenderContain = styled.div`
   width: 100%;
-  height: 130px;
+  height: 125px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -75,32 +76,31 @@ const Tooltip = styled.span`
   border-bottom: 1px dashed #a7a6ab;
 `;
 
-const Lender = () => (
+const Lender = ({ loan, lender, type }) => {
+  const ratingTotal = lender.reviews.reduce((i, review) => i + review.rating, 0);
+  const ratingAvg = Math.floor(ratingTotal / lender.reviews.length);
+  console.log(ratingAvg);
+  return (
   <LenderContain>
     <LenderInfo>
-      <div>30 year fixed</div>
+      <div>{`${type} fixed`}</div>
+      <div><Green>{lender.name}</Green></div>
       <div>
-        <Green>Random Lender</Green>
+        <Stars rating={ratingAvg} />
+        {`${lender.reviews.length} Reviews`}
       </div>
-      <div>***** 6996 Reviews</div>
     </LenderInfo>
     <Quotes>
       <div>
-        <span className="bold">2.749 %</span> APR
-      </div>
-      <div>
-        <span className="bold">2.749 %</span> RATE
-      </div>
-      <div>
-        <span className="bold">$799</span>/MO.
-      </div>
-      <div><span className="bold">$547</span>LENDER FEES
-</div>
+        <span className="bold">{`${loan.apr} %`}</span> APR</div>
+      <div><span className="bold">{`${loan.rate} %`}</span> RATE</div>
+      <div><span className="bold">{`$${loan.fees}`}</span><Tooltip>LENDER FEES</Tooltip></div>
     </Quotes>
     <ArrowContainer>
       <Arrow />
     </ArrowContainer>
   </LenderContain>
-);
+  );
+};
 
 export default Lender;
