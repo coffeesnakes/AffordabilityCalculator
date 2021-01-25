@@ -21,10 +21,7 @@
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+- Node v12.18.4
 
 ## Development
 
@@ -32,8 +29,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
-npm install
-```
+npm install -- installs packages and dependencies necessary.
+npm run start -- Will start the server and setup the project.
+npm run react-dev -- Will run webpack bundler.
 
+npm run seed -- seeds the database.
+npm run test -- runs testing suite and
