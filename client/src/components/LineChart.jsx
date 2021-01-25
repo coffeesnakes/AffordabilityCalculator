@@ -1,74 +1,102 @@
-import React from 'react';
-import * as D3 from 'D3';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import * as d3 from "d3";
 
-const createLineChart = async () => {
-  const margin = { top: 20, right: 20, bottom: 30, left: 50 },
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+import "./line-chart.css";
 
-  const x = d3.scaleTime().range([0, width]);
-  const y = d3.scaleLinear().range([height, 0]);
+class LineChart extends Component {
+  constructor(props) {
+    super(props);
 
-  const valueline = d3
-    .line()
-    .x(function (d) {
-      return x(d.year);
-    })
-    .y(function (d) {
-      return y(d.population);
+    let { elementWidth, elementHeight } = props;
+    this.margin = { top: 30, right: 20, bottom: 30, left: 50 };
+
+    this.x = d3
+      .scaleTime()
+      .range([0, elementWidth - this.margin.left - this.margin.right]);
+    this.y = d3
+      .scaleLinear()
+      .range([elementHeight - this.margin.top - this.margin.bottom, 0]);
+    this.elementWidth = elementWidth;
+    this.elementHeight = elementHeight;
+
+    this.state = {
+      data: null,
+    };
+  }
+
+  componentWillMount() {
+    this.data();
+  }
+
+  get xAxis() {
+    return d3.axisBottom(this.x).ticks(5);
+  }
+
+  get yAxis() {
+    return d3.axisLeft(this.y).ticks(5);
+  }
+
+  drawXAxis() {
+    d3.select(this.refs.x).call(this.xAxis);
+  }
+
+  drawYAxis() {
+    d3.select(this.refs.y).call(this.yAxis);
+  }
+
+  get line() {
+    return d3
+      .line()
+      .x((d) => this.x(d.date))
+      .y((d) => this.y(d.close));
+  }
+
+  path() {
+    return <path className="line" d={this.line(this.state.data)} />;
+  }
+
+  dataFromTSV(path) {
+    path = path || "data.tsv";
+
+    d3.tsv(path, (err, data) => {
+      data = data.map((d) => ({
+        close: +d.close,
+        date: d3.timeParse("%d-%b-%y")(d.date),
+      }));
+
+      this.x.domain(d3.extent(data, (d) => d.date));
+      this.y.domain([0, d3.max(data, (d) => d.close)]);
+      this.setState({ data: data });
     });
+  }
 
-  const svg = d3
-    .select("body")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+  render() {
+    return (
+      <svg width={this.elementWidth} height={this.elementHeight}>
+        <g transform={`translate(${this.margin.left}, ${this.margin.top})`}>
+          {this.state.data ? this.path() : null}
 
-  const data = [10, 42, 20, 32, 86, 40, 10];
+          <g
+            ref="x"
+            className="x axis"
+            transform={`translate(0, ${
+              this.elementHeight - this.margin.top - this.margin.bottom
+            })`}
+          >
+            {this.state.data ? this.drawXAxis() : null}
+          </g>
 
-  data.forEach(function (d) {
-    d.population = +d.population;
-  });
-
-  x.domain(
-    d3.extent(data, function (d) {
-      return d.year;
-    })
-  );
-
-  y.domain([
-    0,
-    d3.max(data, function (d) {
-      return d.population;
-    }),
-  ]);
-
-  svg.append("path").data([data]).attr("class", "line").attr("d", valueline);
-
-  svg
-    .append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x));
-
-  svg.append("g").call(d3.axisLeft(y));
-};
-
-export default function App() {
-  useEffect(() => {
-    createLineChart();
-  }, []);
-
-  return (
-    <div className="App">
-      <style>{`
-        .line {
-          fill: none;
-          stroke: green;
-          stroke-width: 5px;
-        }
-      `}</style>
-    </div>
-  );
+          <g ref="y" className="y axis">
+            {this.state.data ? this.drawYAxis() : null}
+          </g>
+        </g>
+      </svg>
+    );
+  }
 }
+
+LineChart.propTypes = {
+  elementWidth: PropTypes.number.isRequired,
+  elementHeight: PropTypes.number.isRequired,
+};

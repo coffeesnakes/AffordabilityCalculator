@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import LoanRates from './LoanRates';
+// import LineChart from './LineChart';
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -53,8 +54,10 @@ const LenderModal = ({ toggleModal }) => {
   return (
     <ModalBackground onClick={toggleModal}>
       <LendersContainer onClick={handleClick}>
-        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} />
-        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} />
+        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} type="30 year" />
+        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} type="15 year" />
+        <LoanRates title="FHA 30 YEAR FIXED" subTitle="FHA-30yr" lenders={lenders} type="FHA 30 year" />
+        <LoanRates title="10 YEAR FIXED" subTitle="10yr" lenders={lenders} type="10 year" />
       </LendersContainer>
     </ModalBackground>
   );
