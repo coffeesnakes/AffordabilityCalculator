@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import LoanRates from './LoanRates';
-// import LineChart from './LineChart';
 
 const ModalBackground = styled.div`
   position: fixed;
