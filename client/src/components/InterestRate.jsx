@@ -29,7 +29,7 @@ const InterestRate = ({ homePrice, interestRate, handleInterestChange }) => {
   const [value, setValue] = useState(interestRate);
   const [max, setMax] = useState(0);
 
-const handleChange = (event) => {
+  const handleChange = (event) => {
     let val = event.target.value.replace('%', '');
     if (val === null) {
       val = '';
