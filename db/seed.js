@@ -14,18 +14,17 @@ db.once('open', () => {
 });
 db.on('error', (err) => {
   console.error('connection error', err);
-})
-  .then(() => console.log('database seeded, great success, very nice!'));
+});
 
 // seed
 for (let i = 0; i < 100; i += 1) {
   const price = faker.finance.amount(250000, 2000000, 0);
   const homeID = i;
-  console.log('home seed:', homeID, price);
   Home.create({
     home_id: homeID,
     price,
-  });
+  })
+    .then((res) => console.log(res));
 }
 
 const randomOffering = function () {
@@ -67,6 +66,6 @@ for (let i = 0; i < 10; i += 1) {
     offerings: generateMortgage(),
     reviews: genReviews(),
   };
-  console.log(data);
-  Mortgage.create(data);
+  Mortgage.create(data)
+    .then((res) => console.log(res));
 }
