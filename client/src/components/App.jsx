@@ -5,6 +5,7 @@ import Header from './Header';
 import Display from './Display';
 import Controls from './Controls';
 import LenderModal from './LenderModal';
+import GlobalStyles from "./GlobalStyles";
 
 import * as calc from '../utils/calculator';
 
@@ -181,22 +182,25 @@ class App extends Component {
     if (loading) return <div>Loading...</div>;
 
     return (
-      <AppContainer>
-        <Header payment={payment} />
-        <Controls
-          homePrice={homePrice}
-          handlePriceChange={this.handlePriceChange}
-          handleDownPaymentChange={this.handleDownPaymentChange}
-          handlePercentDownChange={this.handlePercentDownChange}
-          handleInterestChange={this.handleInterestChange}
-          handleLoanTypeChange={this.handleLoanTypeChange}
-          state={this.state}
-          downPayment={downPayment}
-          interestRate={interestRate}
-        />
-        <Display homePrice={homePrice} state={this.state} toggleModal={this.toggleModal} />
-        { showModal && <LenderModal toggleModal={this.toggleModal} />}
-      </AppContainer>
+      <>
+        <GlobalStyles />
+        <AppContainer>
+          <Header payment={payment} />
+          <Controls
+            homePrice={homePrice}
+            handlePriceChange={this.handlePriceChange}
+            handleDownPaymentChange={this.handleDownPaymentChange}
+            handlePercentDownChange={this.handlePercentDownChange}
+            handleInterestChange={this.handleInterestChange}
+            handleLoanTypeChange={this.handleLoanTypeChange}
+            state={this.state}
+            downPayment={downPayment}
+            interestRate={interestRate}
+          />
+          <Display homePrice={homePrice} state={this.state} toggleModal={this.toggleModal} />
+          { showModal && <LenderModal toggleModal={this.toggleModal} />}
+        </AppContainer>
+      </>
     );
   }
 }
