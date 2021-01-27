@@ -79,7 +79,6 @@ const Tooltip = styled.span`
 const Lender = ({ loan, lender, type }) => {
   const ratingTotal = lender.reviews.reduce((i, review) => i + review.rating, 0);
   const ratingAvg = Math.floor(ratingTotal / lender.reviews.length);
-  console.log(ratingAvg);
   return (
   <LenderContain>
     <LenderInfo>

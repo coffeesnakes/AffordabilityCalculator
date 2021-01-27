@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  console.log(res);
   Home.findOne({ home_id: req.params.id })
     .then((home) => {
       res.status(200).send(home);
