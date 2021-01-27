@@ -10,7 +10,7 @@ const ModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -36,8 +36,7 @@ const LenderModal = ({ toggleModal }) => {
 
   useEffect(() => {
     const fetchLenders = async () => {
-      const { data } = await axios.get('http://localhost:3003/mortgage');
-      console.log(data);
+      const { data } = await axios.get('/mortgage');
       setLenders(data);
       setLoading(false);
     };

@@ -16,8 +16,6 @@ margin-top 30px;
   flex-flow: column nowrap;
   justify-content: space-between;
    align-items: center;
-
-
 `;
 
 const Display = ({ homePrice, state, toggleModal }) => (
