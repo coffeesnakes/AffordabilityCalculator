@@ -6,7 +6,8 @@ const Home = require('../models/homes.js');
 const Mortgage = require('../models/mortgage.js');
 
 // db
-mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true, useUnifiedTopology: true })
+const URL = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
+mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('connecting to db..'));
 
 // seed
