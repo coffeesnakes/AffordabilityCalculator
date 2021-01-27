@@ -6,14 +6,22 @@ const Home = require('../models/homes.js');
 const Mortgage = require('../models/mortgage.js');
 
 // db
-// const URL = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
-mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('connecting to db..'));
+const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.once('open', () => {
+  console.log('Database connected:', url);
+});
+db.on('error', (err) => {
+  console.error('connection error', err);
+})
+  .then(() => console.log('database seeded, great success, very nice!'));
 
 // seed
 for (let i = 0; i < 100; i += 1) {
   const price = faker.finance.amount(250000, 2000000, 0);
   const homeID = i;
+  console.log('home seed:', homeID, price);
   Home.create({
     home_id: homeID,
     price,
@@ -59,6 +67,6 @@ for (let i = 0; i < 10; i += 1) {
     offerings: generateMortgage(),
     reviews: genReviews(),
   };
-  Mortgage.create(data)
-    .catch((err) => console.log(err));
+  console.log(data);
+  Mortgage.create(data);
 }
