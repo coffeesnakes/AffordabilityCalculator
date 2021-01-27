@@ -1,16 +1,15 @@
 version: '3.8'
 services:
-    app:
-      build:
-        context: .
-      ports:
-      - '3003:3003'
-      environment:
-      - CONNECTIONSTRING=mongodb://mongo:27017/affordability
-      volumes:
-      - ./:/code
-
-mongo:
+ checkout:
+  build:
+   context: .
+  ports:
+   - 3003:3003
+  environment:
+   - CONNECTIONSTRING=mongodb://mongo:27017/affordability
+  volumes:
+   - ./:/code
+ mongo:
   image: mongo:4.4.3
   ports:
    - 27017:27017
@@ -18,5 +17,5 @@ mongo:
    - mongodb:/data/db
    - mongodb_config:/data/configdb
 volumes:
- mongodb:
- mongodb_config:
+  mongodb:
+  mongodb_config:
