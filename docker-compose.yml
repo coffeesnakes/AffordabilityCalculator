@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
     app:
       container_name: affordability
@@ -6,3 +6,19 @@ services:
       build: .
       ports:
         - '3006:3003'
+
+  environment:
+   - CONNECTIONSTRING=mongodb://mongo:27017/affordability
+  volumes:
+   - ./:/code
+
+ mongo:
+  image: mongo:4.4.3
+  ports:
+   - 27017:27017
+  volumes:
+   - mongodb:/data/db
+   - mongodb_config:/data/configdb
+volumes:
+ mongodb:
+ mongodb_config:
