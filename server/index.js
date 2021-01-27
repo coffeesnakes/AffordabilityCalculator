@@ -10,7 +10,7 @@ const homes = require('./routes/homes');
 const mortgage = require('./routes/mortgage');
 
 // db
-mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('connecting to MongoDB ..'));
 
 // parse
