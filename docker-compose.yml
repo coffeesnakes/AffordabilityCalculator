@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
     app:
       build:
@@ -10,7 +10,7 @@ services:
       volumes:
       - ./:/code
 
- mongo:
+mongo:
   image: mongo:4.4.3
   ports:
    - 27017:27017
