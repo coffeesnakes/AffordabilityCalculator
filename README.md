@@ -24,10 +24,6 @@ snap shot of component:
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
-
-> testing for merge
-
 ## Requirements
 
 - Node v12.18.4
