@@ -9,7 +9,7 @@ const port = 3003;
 const homes = require('./routes/homes');
 const mortgage = require('./routes/mortgage');
 
-const url = process.env.CONNECTIONSTRING || "mongodb://localhost/affordability";
+const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
 // db
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('connecting to MongoDB ..'));

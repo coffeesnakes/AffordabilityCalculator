@@ -4,7 +4,6 @@ npm i packageName -P   <--- move necessary devDependencies to dependencies Produ
 
 
 
-
 CD into ur PEM key directory
 sudo chmod 600 pemKeyName.pem   <--- run pem key in ubuntu terminal
 

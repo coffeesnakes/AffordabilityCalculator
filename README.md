@@ -8,6 +8,15 @@
   - https://github.com/Archon-Design/PhotoGallery
   - https://github.com/Archon-Design/Local-Review
 
+Page Speed:
+
+<p align="center">
+<img src="loadSpeed.jpg" width="60%"></p>
+
+snap shot of component:
+ <p align="center">
+ <img src="snapShot.jpg" width="60%"></p>
+
 
 ## Table of Contents
 
@@ -22,7 +31,7 @@
 ## Requirements
 
 - Node v12.18.4
-
+- MongoDB v4.4.0
 ## Development
 
 ### Installing Dependencies
