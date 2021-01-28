@@ -10,7 +10,7 @@ const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
-  console.log('Database connected:', url);
+  console.log('Database connected:');
 });
 db.on('error', (err) => {
   console.error('connection error', err);
@@ -23,8 +23,7 @@ for (let i = 0; i < 100; i += 1) {
   Home.create({
     home_id: homeID,
     price,
-  })
-    .then((res) => console.log(res));
+  });
 }
 
 const randomOffering = function () {
@@ -66,6 +65,5 @@ for (let i = 0; i < 10; i += 1) {
     offerings: generateMortgage(),
     reviews: genReviews(),
   };
-  Mortgage.create(data)
-    .then((res) => console.log(res));
+  Mortgage.create(data);
 }

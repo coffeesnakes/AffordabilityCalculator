@@ -9,8 +9,9 @@ const port = 3003;
 const homes = require('./routes/homes');
 const mortgage = require('./routes/mortgage');
 
+const url = process.env.CONNECTIONSTRING || "mongodb://localhost/affordability";
 // db
-mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('connecting to MongoDB ..'));
 
 // parse
@@ -25,4 +26,4 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use('/homes', homes);
 app.use('/mortgage', mortgage);
 
-app.listen(port, () => console.log(`connectedon localhost:${port}..`));
+app.listen(port, () => console.log(`connected on ${port}`));
