@@ -1,12 +1,14 @@
 # Project Name
 
-> Project description
+This is an affordability calculator that calculates how much you can afford to spend on a house, and estimates the monthly mortgage payment.
+This is done by taking home price, down payment, and interest rate into account.
 
 ## Related Projects
 
   - https://github.com/Archon-Design/similar-homes
   - https://github.com/Archon-Design/PhotoGallery
   - https://github.com/Archon-Design/Local-Review
+
 
 Page Speed:
 
