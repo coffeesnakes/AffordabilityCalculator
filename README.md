@@ -38,9 +38,12 @@ snap shot of component:
 
 From within the root directory:
 
-npm install -- installs packages and dependencies necessary.
-npm run start -- Will start the server and setup the project.
-npm run react-dev -- Will run webpack bundler.
+npm install : installs packages and dependencies necessary.
 
-npm run seed -- seeds the database.
-npm run test -- runs testing suite and gives a coverage report.
+npm run start : Will start the server and setup the project.
+
+npm run react-dev : Will run webpack bundler.
+
+npm run seed: seeds the database.
+
+npm run test : runs testing suite and gives a coverage report.
