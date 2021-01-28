@@ -47,7 +47,6 @@ class App extends Component {
   async componentDidMount() {
     const randomIdx = Math.floor(Math.random() * 100);
     const { data } = await axios.get(`/homes/${randomIdx}`);
-    console.log('componentDidMount:', data);
     this.handlePriceChange(data.price);
   }
 
@@ -161,7 +160,7 @@ class App extends Component {
     });
   }
 
-  toggleModal(e) {
+  toggleModal() {
     const { showModal } = this.state;
     this.setState({ showModal: !showModal });
   }
