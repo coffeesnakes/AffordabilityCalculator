@@ -56,6 +56,10 @@ const LenderModal = ({ toggleModal }) => {
         <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} type="15 year" />
         <LoanRates title="FHA 30 YEAR FIXED" subTitle="FHA-30yr" lenders={lenders} type="FHA 30 year" />
         <LoanRates title="10 YEAR FIXED" subTitle="10yr" lenders={lenders} type="10 year" />
+        <LoanRates title="30 YEAR FIXED" subTitle="30yr" lenders={lenders} type="30 year" />
+        <LoanRates title="15 YEAR FIXED" subTitle="15yr" lenders={lenders} type="15 year" />
+        <LoanRates title="FHA 30 YEAR FIXED" subTitle="FHA-30yr" lenders={lenders} type="FHA 30 year" />
+        <LoanRates title="10 YEAR FIXED" subTitle="10yr" lenders={lenders} type="10 year" />
       </LendersContainer>
     </ModalBackground>
   );
