@@ -43,8 +43,9 @@ const LoanRates = ({ title, subTitle, lenders, type }) => (
   <RatesContainer>
     <LowestRate>Lowest APR ({subTitle})</LowestRate>
     <RatesHeader>{title}</RatesHeader>
+    {console.log(lenders[0])}
     <Lender lender={lenders[0]} loan={lenders[0].offerings[0]} type={type} />
-    <Lender lender={lenders[1]} loan={lenders[1].offerings[1]} type={type} />
+    <Lender lender={lenders[1]} loan={{"terms":"30 Year Fixed","rate":4.275,"apr":2.888,"fees":453}} type={type} />
   </RatesContainer>
 );
 
