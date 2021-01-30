@@ -61,6 +61,7 @@ const genReviews = function () {
 for (let i = 0; i < 10; i += 1) {
   const data = {
     name: faker.company.companyName(),
+    mortgage_id: i,
     favorite: false,
     offerings: generateMortgage(),
     reviews: genReviews(),

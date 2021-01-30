@@ -13,6 +13,7 @@ const reviewSchema = new mongoose.Schema({
 
 const mortgageSchema = new mongoose.Schema({
   name: String,
+  mortgage_id: Number,
   favorite: Boolean,
   offerings: [offeringSchema],
   reviews: [reviewSchema],
