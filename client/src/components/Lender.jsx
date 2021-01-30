@@ -90,10 +90,14 @@ const Lender = ({ loan, lender, type }) => {
       </div>
     </LenderInfo>
     <Quotes>
+        <div><span className="bold">{`${loan.apr} %`}</span> APR</div>
+        <div><span className="bold">{`${loan.rate} %`}</span> RATE</div>
       <div>
-        <span className="bold">{`${loan.apr}%`}</span> APR</div>
-      <div><span className="bold">{`${loan.rate} %`}</span> RATE</div>
-      <div><span className="bold">{`$${loan.fees}`}</span><Tooltip>LENDER FEES</Tooltip></div>
+        <span className="bold">
+          {`$${loan.fees}`}
+        </span>
+        <Tooltip>LENDER FEES</Tooltip>
+      </div>
     </Quotes>
     <ArrowContainer>
       <Arrow />
