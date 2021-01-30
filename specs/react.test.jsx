@@ -4,6 +4,7 @@ import { mount, shallow } from 'enzyme';
 import App from '../client/src/components/App';
 import Display from '../client/src/components/Display';
 import Controls from '../client/src/components/Controls';
+import CostBreakdown from '../client/src/components/CostBreakdown';
 
 describe('App testing', () => {
   let wrapper;
@@ -60,4 +61,12 @@ describe('Controls testing', () => {
   });
 });
 
-
+describe('Test for button', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<CostBreakdown />);
+    it('Rendering the loan type', () => {
+      expect(wrapper.find('Btn')).toExist();
+    });
+  });
+});

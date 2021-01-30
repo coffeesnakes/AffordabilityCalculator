@@ -1,12 +1,23 @@
 # Project Name
 
-> Project description
+This is an affordability calculator that calculates how much you can afford to spend on a house, and estimates the monthly mortgage payment.
+This is done by taking home price, down payment, and interest rate into account.
 
 ## Related Projects
 
   - https://github.com/Archon-Design/similar-homes
   - https://github.com/Archon-Design/PhotoGallery
-  - insert erics repo here
+  - https://github.com/Archon-Design/Local-Review
+
+
+Page Speed:
+
+<p align="center">
+<img src="loadSpeed.jpg" width="60%"></p>
+
+snap shot of component:
+ <p align="center">
+ <img src="snapShot.jpg" width="60%"></p>
 
 
 ## Table of Contents
@@ -15,16 +26,14 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
-
-> testing for merge
-
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node v12.18.4
+
+
+- MongoDB v4.4.0
+
 
 ## Development
 
@@ -32,8 +41,12 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
-npm install
-```
+npm install : installs packages and dependencies necessary.
 
+npm run start : Will start the server and setup the project.
+
+npm run react-dev : Will run webpack bundler.
+
+npm run seed: seeds the database.
+
+npm run test : runs testing suite and gives a coverage report.

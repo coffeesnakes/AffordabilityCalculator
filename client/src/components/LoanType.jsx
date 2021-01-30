@@ -65,11 +65,13 @@ const Arrow = styled.i`
   transform: rotate(45deg);
 `;
 
-const LoanType = () => {
+const LoanType = ({ handleLoanTypeChange }) => {
   const [selectValue, setSelectValue] = useState("30-year fixed");
 
-  const handleChange = (e) => {
-    setSelectValue(e.target.value);
+  const handleChange = (event) => {
+    const text = event.target.options[event.target.selectedIndex].textContent;
+    setSelectValue(text);
+    handleLoanTypeChange(event.target.value);
   };
 
   return (
@@ -83,14 +85,14 @@ const LoanType = () => {
           <Arrow />
         </MediaContainer>
         <select className="loan-type-select" onChange={handleChange}>
-          <option value="30-year fixed">30-year fixed</option>
-          <option value="20-year fixed">20-year fixed</option>
-          <option value="15-year fixed">15-year fixed</option>
-          <option value="10-year fixed">10-year fixed</option>
-          <option value="FHA 30-year fixed">FHA 30-year fixed</option>
-          <option value="FHA 15-year fixed">FHA 15-year fixed</option>
-          <option value="VA 30-year fixed">VA 30-year fixed</option>
-          <option value="VA 15-year fixed">VA 15-year fixed</option>
+          <option value="244">30-year fixed</option>
+          <option value="185">20-year fixed</option>
+          <option value="153">15-year fixed</option>
+          <option value="108">10-year fixed</option>
+          <option value="244">FHA 30-year fixed</option>
+          <option value="185">FHA 15-year fixed</option>
+          <option value="244">VA 30-year fixed</option>
+          <option value="185">VA 15-year fixed</option>
         </select>
       </SelectContainer>
     </LoanTypeContainer>

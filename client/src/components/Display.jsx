@@ -10,14 +10,18 @@ flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
 width: 100%;
-// padding: 20px;
 margin-top 30px;
+
+@media (max-width: 767px) {
+  flex-flow: column nowrap;
+  justify-content: space-between;
+   align-items: center;
 `;
 
-const Display = ({ homePrice, state }) => (
+const Display = ({ homePrice, state, toggleModal }) => (
   <DisplayContain>
     <Chart state={state} />
-    <CostBreakdown homePrice={homePrice} state={state} />
+    <CostBreakdown homePrice={homePrice} state={state} toggleModal={toggleModal} />
   </DisplayContain>
 );
 

@@ -6,8 +6,15 @@ const Home = require('../models/homes.js');
 const Mortgage = require('../models/mortgage.js');
 
 // db
-mongoose.connect('mongodb://localhost/affordability', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('connecting to db..'));
+const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/affordability';
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.once('open', () => {
+  console.log('Database connected:');
+});
+db.on('error', (err) => {
+  console.error('connection error', err);
+});
 
 // seed
 for (let i = 0; i < 100; i += 1) {
@@ -58,6 +65,5 @@ for (let i = 0; i < 10; i += 1) {
     offerings: generateMortgage(),
     reviews: genReviews(),
   };
-  Mortgage.create(data)
-    .catch((err) => console.log(err));
+  Mortgage.create(data);
 }

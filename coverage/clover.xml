@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611191395662" clover="3.2.0">
-  <project timestamp="1611191395662" name="All files">
-    <metrics statements="105" coveredstatements="58" conditionals="5" coveredconditionals="2" methods="27" coveredmethods="11" elements="137" coveredelements="71" complexity="0" loc="105" ncloc="105" packages="2" files="13" classes="13"/>
+<coverage generated="1611361162726" clover="3.2.0">
+  <project timestamp="1611361162726" name="All files">
+    <metrics statements="186" coveredstatements="81" conditionals="11" coveredconditionals="2" methods="41" coveredmethods="11" elements="238" coveredelements="94" complexity="0" loc="186" ncloc="186" packages="2" files="16" classes="16"/>
     <package name="components">
-      <metrics statements="97" coveredstatements="50" conditionals="4" coveredconditionals="2" methods="22" coveredmethods="6"/>
+      <metrics statements="178" coveredstatements="73" conditionals="10" coveredconditionals="2" methods="36" coveredmethods="6"/>
       <file name="App.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/App.jsx">
-        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
+        <metrics statements="37" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="4"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="58" count="3" type="stmt"/>
-        <line num="79" count="6" type="stmt"/>
-        <line num="81" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="83" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="165" count="6" type="stmt"/>
+        <line num="167" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="169" count="3" type="stmt"/>
       </file>
       <file name="Chart.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Chart.jsx">
         <metrics statements="14" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -41,23 +64,28 @@
       <file name="Controls.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Controls.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
       </file>
       <file name="Cost.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Cost.jsx">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
       </file>
       <file name="CostBreakdown.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/CostBreakdown.jsx">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
       </file>
       <file name="Display.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Display.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -66,13 +94,34 @@
         <line num="18" count="2" type="stmt"/>
       </file>
       <file name="DownPayment.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/DownPayment.jsx">
-        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="27" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="6" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="94" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
       </file>
       <file name="Header.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Header.jsx">
         <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -83,11 +132,10 @@
         <line num="23" count="0" type="stmt"/>
       </file>
       <file name="HomePrice.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/HomePrice.jsx">
-        <metrics statements="19" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="17" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
@@ -97,22 +145,62 @@
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
       </file>
       <file name="InterestRate.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/InterestRate.jsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="16" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="6" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="Lender.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/Lender.jsx">
+        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+      </file>
+      <file name="LenderModal.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/LenderModal.jsx">
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+      <file name="LoanRates.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/LoanRates.jsx">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
       </file>
       <file name="LoanType.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/LoanType.jsx">
-        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -122,7 +210,9 @@
         <line num="69" count="0" type="stmt"/>
         <line num="71" count="0" type="stmt"/>
         <line num="72" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
       </file>
       <file name="RangeSlider.jsx" path="/Users/helloFriend/Desktop/C0DE/AffordabilityCalculator/client/src/components/RangeSlider.jsx">
         <metrics statements="10" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
