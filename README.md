@@ -29,7 +29,9 @@ snap shot of component:
 ## Requirements
 
 - Node v12.18.4
+
 - MongoDB v4.4.0
+
 ## Development
 
 ### Installing Dependencies
