@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-  font-family: Roboto, "Segoe UI Bold", Arial, sans-serif;
+  font-family: Cabin, Roboto, "Segoe UI Bold", Arial, sans-serif;
   font-weight: 100;
   }
 

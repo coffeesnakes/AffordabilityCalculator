@@ -24,7 +24,7 @@ const ControlsContain = styled.div`
 
 const Controls = ({
   homePrice, handlePriceChange, handleDownPaymentChange, handlePercentDownChange,
-  state, downPayment, interestRate, handleInterestChange,
+  state, downPayment, interestRate, handleInterestChange, handleLoanTypeChange,
 }) => (
   <ControlsContain>
     <HomePrice homePrice={homePrice} handlePriceChange={handlePriceChange} />
@@ -40,7 +40,7 @@ const Controls = ({
       interestRate={interestRate}
       handleInterestChange={handleInterestChange}
     />
-    <LoanType />
+    <LoanType handleLoanTypeChange={handleLoanTypeChange} />
   </ControlsContain>
 );
 
