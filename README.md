@@ -9,16 +9,15 @@ This is done by taking home price, down payment, and interest rate into account.
   - https://github.com/Archon-Design/PhotoGallery
   - https://github.com/Archon-Design/Local-Review
 
+snap shot of component:
+ <p align="center">
+ <img src="snapShot.jpg" width="60%"></p>
+
 
 Page Speed:
 
 <p align="center">
 <img src="loadSpeed.jpg" width="60%"></p>
-
-snap shot of component:
- <p align="center">
- <img src="snapShot.jpg" width="60%"></p>
-
 
 ## Table of Contents
 
